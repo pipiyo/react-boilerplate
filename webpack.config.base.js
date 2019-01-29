@@ -16,8 +16,18 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: [
+            'react-hot-loader/babel',
+            '@babel/plugin-proposal-class-properties'
+          ]
         }
+      },
+      {
+        test: /\.css$/,
+        //loader cuando es 1 solo loader y use cuando don varios(loaders esta deprecado)
+        use: ['style-loader', 'css-loader'],
+        exclude: /node_modules/
       }
     ]
   },
